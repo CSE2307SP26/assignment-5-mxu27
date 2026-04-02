@@ -89,4 +89,30 @@ public class EnemyControl {
     public void setBallY(int i, double value){
         this.ballsYLocation[i] = value;
     }
+
+    public void setBallXVelocity(int i, double value){
+        this.ballsXVelocites[i] = value;
+    }
+    public void setBallYVelocity(int i, double value){
+        this.ballsYVelocites[i] = value;
+    }
+
+    public double getUpperVelocity(){
+        return this.upperVelocity;
+    }
+
+    public double getLowerVelocity(){
+        return this.lowerVelocity;
+    }
+
+    public void reset(int count) {
+        ballCount = count;
+        ballsXLocation = new double[ballCount];
+        ballsYLocation = new double[ballCount];
+        ballsXVelocites = new double[ballCount];
+        ballsYVelocites = new double[ballCount];
+        setInitialBalls();
+    }
 }
+
+

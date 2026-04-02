@@ -49,18 +49,12 @@ public class Game {
 			
 			//reset
 			if(c) {
-				ballCount = 3;
-				for(int i = 0; i < ballCount; i++) {
-					enemies.setBallX(i, Math.random());
-					enemies.setBallY(i, Math.random());
-					ballsXVelocites[i] = Math.random() * (upperVelocity - lowerVelocity) + lowerVelocity;
-					ballsYVelocites[i] = Math.random() * (upperVelocity - lowerVelocity) + lowerVelocity;
-					score = 0;
-					startTime= System.currentTimeMillis();
-					deltaTime= System.currentTimeMillis();
-					player.setPlayerX(0.5);
-					player.setPlayerY(0.5);
-				}
+				enemies.reset(3);
+				score = 0;
+				startTime = System.currentTimeMillis();
+				deltaTime = System.currentTimeMillis();
+				player.setPlayerX(0.5);
+				player.setPlayerY(0.5);
 			}
 			
 			//player control
@@ -82,8 +76,8 @@ public class Game {
 				deltaTime= now;
 			}
 			StdDraw.setPenColor(Color.red);
-			for(int i = 0; i < ballCount; i++) {
-				StdDraw.filledCircle(ballsXLocation[i], ballsYLocation[i], radius);
+			for(int i = 0; i < enemies.getBallCount(); i++) {
+				StdDraw.filledCircle(enemies.getBallX(i), enemies.getBallY(i), radius);
 			}
 			
 			StdDraw.setPenColor(Color.black);
